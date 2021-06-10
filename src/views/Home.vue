@@ -2,7 +2,8 @@
   <div class="home">
     <ProductDescriptionEach 
     :product="product"
-    :active="active.product_each"/>
+    :active="active.product_each"
+    v-on:close-product-each="closeProducteach()"/>
 
 
     <div class="product-cards-container"></div>
@@ -36,7 +37,7 @@ export default {
       items:items,
       product:null,
       active : {
-        product_each:true
+        product_each:false
 
       }
 
@@ -45,7 +46,12 @@ export default {
   methods:{
     viewProduct(product){
       this.product=product
-      //console.log(this.product)
+      this.active.product_each=true
+      console.log(this.product)
+
+    },
+    closeProducteach(){
+      this.active.product_each=false
 
     }
   }
