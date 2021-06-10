@@ -11,13 +11,17 @@
         <p class="description">{{ product.description }}</p>
         <h3 class="text-center">${{ product.price.toFixed(2) }}</h3>
       </div>
+
       <div class="cart-total" v-if="product_total">
-        <h3>In Cart</h3>
-        <h4>{{ product_total }}</h4>
+            <h3>In Cart</h3>
+            <h4>{{ product_total }}</h4>
       </div>
+
+
+      
       <div class="button-containar">
         <button class="remove">remove</button>
-        <button class="add">add</button>
+        <button class="add" @click="addToCart()">add</button>
       </div>
     </div>
   </div>
@@ -25,9 +29,15 @@
 <script>
 export default {
   props: ["product", "active"],
+  methods:{
+      addToCart(){
+          this.$store.commit('addToCart',this.product)
+      }
+
+  },
   computed: {
     product_total() {
-      return 5;
+      return this.$store.getters.productQuantity(this.product)
     },
   },
 };
