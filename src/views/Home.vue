@@ -6,14 +6,14 @@
     v-on:close-product-each="closeProducteach()"/>
 
 
-    <div class="product-cards-container"></div>
+    <div class="product-cards-container">
    <ProductSummaryCard 
    v-for="product in items" 
    :key="product.id"
    :product="product"
    v-on:view-product="viewProduct($event)"
    />
-
+</div>
 
 
     
@@ -47,7 +47,7 @@ export default {
     viewProduct(product){
       this.product=product
       this.active.product_each=true
-      console.log(this.product)
+      //console.log(this.product)
 
     },
     closeProducteach(){
