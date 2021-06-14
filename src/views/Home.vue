@@ -3,7 +3,8 @@
     <ProductDescriptionEach 
     :product="product"
     :active="active.product_each"
-    v-on:close-product-each="closeProducteach()"/>
+    v-on:close-product-each="closeProducteach()"
+    />
 
 
     <div class="product-cards-container">
