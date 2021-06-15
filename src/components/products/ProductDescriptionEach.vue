@@ -15,25 +15,24 @@
           <h3>In Cart</h3>
           <h4>{{ product_total }}</h4>
         </div>
-       
       </div>
-       <div class="button-containar">
-          <button class="remove" @click="removeFromCart()">remove</button>
-          <button class="add" @click="addToCart()">Add</button>
-        </div>
+      <div class="button-containar">
+        <button class="remove" @click="removeFromCart()">remove</button>
+        <button class="add" @click="addToCart()">Add</button>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: ["product", "active"],
+  props: ['product', 'active'],
   methods: {
     addToCart() {
-      this.$store.commit('addToCart', this.product)
+      this.$store.commit("addToCart", this.product);
     },
-    removeFromCart(){
-      this.$store.commit('removeFromCart',this.product)
-    }
+    removeFromCart() {
+      this.$store.commit("removeFromCart", this.product);
+    },
   },
   computed: {
     product_total() {
@@ -62,7 +61,7 @@ export default {
     background-color: white;
     position: fixed;
     top: 0;
-    left: -100vw;
+    left: -105vw;
     padding: 10px;
     transition: left 0.6s;
     z-index: 101;
@@ -75,6 +74,8 @@ export default {
     font-size: 1.7rem;
     padding: 5px;
     border: 2px solid gray;
+    right: 10px;
+    border-radius: 5px;
     color: gray;
     width: 15px;
     float: right;
