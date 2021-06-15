@@ -3,9 +3,12 @@
     class="Each-background"
     :class="{ show: active }"
     @click="$emit('close-product-each')"
-  >
-    <div class="each" :class="{ show: active }">
-      <div class="each-close" @click="$emit('close-product-each')">X</div>
+  />
+
+  <div class="each" :class="{ show: active }">
+      <div class="each-close" @click="$emit('close-product-each')">
+        X
+      </div>
 
       <div v-if="product" class="product-details">
         <h3 class="text-center">{{ product.name }}</h3>
@@ -16,16 +19,15 @@
           <h4>{{ product_total }}</h4>
         </div>
       </div>
-      <div class="button-containar">
-        <button class="remove" @click="removeFromCart()">remove</button>
-        <button class="add" @click="addToCart()">Add</button>
-      </div>
+    <div class="button-containar">
+      <button class="remove" @click="removeFromCart()">remove</button>
+      <button class="add" @click="addToCart()">Add</button>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: ['product', 'active'],
+  props: ["product", "active"],
   methods: {
     addToCart() {
       this.$store.commit("addToCart", this.product);
@@ -51,27 +53,30 @@ export default {
   background-color: rgba(124, 124, 125, 0.6);
   z-index: 100;
   display: none;
-  transition: display 0.5s;
+  transition: display .5s;
   &.show {
     display: block;
   }
-  .each {
+ 
+ 
+}
+.each {
     width: 90vw;
     height: 100vh;
     background-color: white;
     position: fixed;
     top: 0;
     left: -105vw;
-    padding: 10px;
-    transition: left 0.6s;
+    padding: 15px;
+    transition: left .6s;
     z-index: 101;
     overflow-y: scroll;
     &.show {
       left: 0;
     }
   }
-  .each-close {
-    font-size: 1.7rem;
+ .each-close {
+    font-size: 1.5rem;
     padding: 5px;
     border: 2px solid gray;
     right: 10px;
@@ -84,7 +89,7 @@ export default {
       background-color: blue;
     }
   }
-}
+ 
 .product-details {
   display: flex;
   justify-content: center;
